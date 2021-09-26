@@ -1,4 +1,4 @@
-*{
+* {
     --cor-azul: #b0c4de;
     --cor-cinza: #212529;
     --cor-azul-cinza: #778899;
@@ -10,4 +10,15 @@ main {
 .login {
     border: 2px solid var(--cor-azul-cinza);
     background-color: var(--cor-branco);
+}
+
+@media (min-width: 1281px) {
+    .forCenter {
+        width: auto !important;
+    }
+}
+@media (min-width: 990px) and (max-width: 1280px) {
+    .forCenter {
+        width: auto !important;
+    }
 }

@@ -16,6 +16,11 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
         />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+        ></script>
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
@@ -57,38 +62,16 @@
                                             justify-content-lg-start
                                         "
                                     >
+                                        <a class="navbar-brand" href="/">
+                                            <img
+                                                class="img-fluid"
+                                                src="../static/img/logo.png"
+                                                th:attr="src=@{/img/logo.png},title=#{logo},alt=#{logo}"
+                                            />
+                                        </a>
                                         <p class="lead fw-normal mb-0 me-3">
-                                            Entrar com:
+                                            Minha conta:
                                         </p>
-                                        <button
-                                            type="button"
-                                            class="
-                                                btn btn-primary btn-floating
-                                                mx-1
-                                            "
-                                        >
-                                            <i class="fab fa-facebook-f"></i>
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            class="
-                                                btn btn-primary btn-floating
-                                                mx-1
-                                            "
-                                        >
-                                            <i class="fab fa-twitter"></i>
-                                        </button>
-
-                                        <button
-                                            type="button"
-                                            class="
-                                                btn btn-primary btn-floating
-                                                mx-1
-                                            "
-                                        >
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </button>
                                     </div>
 
                                     <div
@@ -106,12 +89,12 @@
                                             type="email"
                                             id="form3Example3"
                                             class="form-control form-control-lg"
-                                            placeholder="Entre com o seu e-mail"
+                                            placeholder="Entre com o seu e-mail ou CPF"
                                         />
                                         <label
                                             class="form-label"
                                             for="form3Example3"
-                                            >E-mail</label
+                                            >E-mail/CPF</label
                                         >
                                     </div>
 
