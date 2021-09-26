@@ -15,4 +15,12 @@ public class Controlador {
     String login(){
         return "login";
     }
+    @RequestMapping("/aluno")
+    String aluno(){
+        return "pagAluno";
+    }
+    @RequestMapping("/ajustealuno")
+    String ajuste(){
+        return "ajuste";
+    }
 }
