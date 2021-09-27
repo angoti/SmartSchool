@@ -20,47 +20,54 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
         />
+        <style>
+            .input-group{
+                padding: 10px;
+            }
+        </style>
     </head>
     <body>
         <div th:replace="fragmentos/navProfessor :: nav"></div>
 
         <main class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Cadastro Alunos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cadastro Professores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cadastro de Salas</a>
+                </li>
+              </ul>
             <div>
-                <div>
-                    <label for="">Codigo da Sala/Turma</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Professor</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <input type="button" value="Pesquisar">
-                    <input type="button" value="Limpar">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <label for="">Cod. Turma</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Professor</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Qtd. Alunos</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Alunos</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">local da aula</label>
-                    <input type="text">
-                </div>
-            </div>
+              <form action="">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Código da sala/Turma...">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Código da Turma</span>
+                    <input type="text" aria-label="Código" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Nome do Professor</span>
+                    <input type="text" aria-label="Nome" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Qtd. Alunos</span>
+                    <input type="number" aria-label="Qtd" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Alunos</span>
+                    <input type="text" aria-label="Alunos" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Local da Sala</span>
+                    <input type="text" aria-label="sala" class="form-control">
+                  </div>
+            </form>
         </main>
 
         <div th:replace="fragmentos/footer :: footer"></div>

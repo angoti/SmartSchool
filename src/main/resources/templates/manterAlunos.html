@@ -20,71 +20,74 @@
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
         />
+        <style>
+            .input-group{
+                padding: 10px;
+            }
+        </style>
     </head>
     <body>
         <div th:replace="fragmentos/navProfessor :: nav"></div>
 
         <main class="container">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Cadastro Alunos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cadastro Professores</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Cadastro de Salas</a>
+                </li>
+              </ul>
             <div>
+              <form action="">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Nome ou CPF">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Nome e CPF</span>
+                    <input type="text" aria-label="Nome" class="form-control">
+                    <input type="text" aria-label="CPF" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Data de Nascimento</span>
+                    <input type="date" aria-label="Data de Nascimento" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">E-mail</span>
+                    <input type="email" aria-label="E-mail" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Nome da Mãe</span>
+                    <input type="text" aria-label="Nome da Mãe" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Nome do Pai</span>
+                    <input type="text" aria-label="Nome do Pai" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Telefone do responsavel</span>
+                    <input type="tel" aria-label="Telefone" class="form-control">
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text">Endereço</span>
+                    <input type="text" aria-label="Endereço" class="form-control">
+                  </div>
                 <div>
-                    <label for="">Nome</label>
-                    <input type="text">
+                <div class="input-group">
+                    <span class="input-group-text">País/Cidade</span>
+                    <input type="text" aria-label="Nome" class="form-control">
+                    <input type="text" aria-label="CPF" class="form-control">
                 </div>
-                <div>
-                    <label for="">CPF</label>
-                    <input type="text">
+                <div class="input-group">
+                    <span class="input-group-text">Certidão de Nascimento</span>
+                    <input type="text" aria-label="Certidão" class="form-control">
+                  </div>
                 </div>
-                <div>
-                    <input type="button" value="Pesquisar">
-                    <input type="button" value="Limpar">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <label for="">Nome</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">CPF</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Data de Nascimento</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">E-mail do responsavel</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Nome do pai</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Nome do mae</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Telefone responsavel</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Endereco</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Pais</label>
-                    <input type="text">
-                    <label for="">Cidade</label>
-                    <input type="text">
-                    <label for="">Estado</label>
-                    <input type="text">
-                </div>
-                <div>
-                    <label for="">Certidao de Nascimento</label>
-                    <input type="text">
-                </div>
-            </div>
+            </form>
         </main>
 
         <div th:replace="fragmentos/footer :: footer"></div>
