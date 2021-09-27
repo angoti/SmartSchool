@@ -11,6 +11,9 @@ main {
     border: 2px solid var(--cor-azul-cinza);
     background-color: var(--cor-branco);
 }
+.borda {
+    border: 2px solid var(--cor-azul-cinza);
+}
 
 @media (min-width: 1281px) {
     .forCenter {
