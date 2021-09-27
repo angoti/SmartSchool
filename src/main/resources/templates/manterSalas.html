@@ -30,19 +30,18 @@
         <div th:replace="fragmentos/navProfessor :: nav"></div>
 
         <main class="container">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Cadastro Alunos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Cadastro Professores</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Cadastro de Salas</a>
-                </li>
-              </ul>
-            <div>
-              <form action="">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/manteralunos">Manutenção Cadastro Alunos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/mantersala">Manutenção Cadastro Professores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/manterprofessores">Manutenção Cadastro de Salas</a>
+            </li>
+          </ul>
+              <form action="" class="vh-100">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Código da sala/Turma...">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>

@@ -45,6 +45,6 @@ public class Controlador {
     }
     @RequestMapping("/mantersala")
     String mantersala(){
-        return "manterSala";
+        return "manterSalas";
     }
 }
