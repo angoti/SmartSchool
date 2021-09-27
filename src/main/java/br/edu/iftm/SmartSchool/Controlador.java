@@ -23,4 +23,16 @@ public class Controlador {
     String ajuste(){
         return "ajuste";
     }
+    @RequestMapping("/relatorio")
+    String relatorio(){
+        return "relatorioTurma";
+    }
+    @RequestMapping("/salas")
+    String salas(){
+        return "salas";
+    }
+    @RequestMapping("/respostasala")
+    String respostasalas(){
+        return "respostaSala";
+    }
 }
