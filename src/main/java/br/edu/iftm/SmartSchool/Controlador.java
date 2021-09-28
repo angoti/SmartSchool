@@ -35,4 +35,16 @@ public class Controlador {
     String respostasalas(){
         return "respostaSala";
     }
+    @RequestMapping("/manteralunos")
+    String manteralunos(){
+        return "manterAlunos";
+    }
+    @RequestMapping("/manterprofessores")
+    String manterprofessores(){
+        return "manterProfessores";
+    }
+    @RequestMapping("/mantersala")
+    String mantersala(){
+        return "manterSalas";
+    }
 }
