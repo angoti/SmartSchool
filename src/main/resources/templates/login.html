@@ -33,133 +33,50 @@
             <div>
                 <section class="vh-100">
                     <div class="container-fluid h-custom">
-                        <div
-                            class="
-                                row
-                                d-flex
-                                justify-content-center
-                                align-items-center
-                                h-100
-                            "
+                        <div    class="row justify-content-md-center"
+
                         >
-                            <div
-                                class="
-                                    col-md-8 col-lg-6 col-xl-4
-                                    offset-xl-1
-                                    login
-                                    p-4
-                                    m-auto
-                                    mt-5
-                                "
-                            >
-                                <form>
-                                    <div
-                                        class="
-                                            d-flex
-                                            flex-row
-                                            align-items-center
-                                            justify-content-center
-                                            justify-content-lg-start
-                                        "
-                                    >
-                                        <a class="navbar-brand" href="/">
-                                            <img
-                                                class="img-fluid"
-                                                src="../static/img/logo.png"
-                                                th:attr="src=@{/img/logo.png},title=#{logo},alt=#{logo}"
-                                            />
-                                        </a>
-                                        <p class="lead fw-normal mb-0 me-3">
-                                            Minha conta:
-                                        </p>
-                                    </div>
-
-                                    <div
-                                        class="
-                                            divider
-                                            d-flex
-                                            align-items-center
-                                            my-4
-                                        "
-                                    ></div>
-
-                                    <!-- Email input -->
-                                    <div class="form-outline mb-4">
-                                        <input
-                                            type="email"
-                                            id="form3Example3"
-                                            class="form-control form-control-lg"
-                                            placeholder="Entre com o seu e-mail ou CPF"
-                                        />
-                                        <label
-                                            class="form-label"
-                                            for="form3Example3"
-                                            >E-mail/CPF</label
-                                        >
-                                    </div>
-
-                                    <!-- Password input -->
-                                    <div class="form-outline mb-3">
-                                        <input
-                                            type="password"
-                                            id="form3Example4"
-                                            class="form-control form-control-lg"
-                                            placeholder="Informe sua senha"
-                                        />
-                                        <label
-                                            class="form-label"
-                                            for="form3Example4"
-                                            >Senha</label
-                                        >
-                                    </div>
-
-                                    <div
-                                        class="
-                                            d-flex
-                                            justify-content-between
-                                            align-items-center
-                                        "
-                                    >
-                                        <!-- Checkbox -->
-                                        <div class="form-check mb-0">
-                                            <input
-                                                class="form-check-input me-2"
-                                                type="checkbox"
-                                                value=""
-                                                id="form2Example3"
-                                            />
-                                            <label
-                                                class="form-check-label"
-                                                for="form2Example3"
-                                            >
-                                                Lembrar!
-                                            </label>
-                                        </div>
-                                        <a href="#!" class="text-body"
-                                            >Esqueceu a senha?</a
-                                        >
-                                    </div>
-
-                                    <div
-                                        class="
-                                            text-center text-lg-start
-                                            mt-4
-                                            pt-2
-                                        "
-                                    >
-                                        <button
-                                            type="button"
-                                            class="btn btn-primary btn-lg"
-                                            onclick="window.location.assign('/aluno')"
-                                            style="
+                            <div class="col-md-auto">
+                                <button
+                                        class="btn btn-primary btn-sm"
+                                        type="button"
+                                        onclick="window.location.assign('/auth')"
+                                        style="
                                                 padding-left: 2.5rem;
                                                 padding-right: 2.5rem;
+                                                margin: 10px;
                                             "
-                                        >
-                                            Entrar
-                                        </button>
-                                    </div>
-                                </form>
+                                >
+                                    Eu sou Aluno
+                                </button>
+                            </div>
+                            <div class="col-md-auto" >
+                                <button
+                                        class="btn btn-success btn-sm"
+                                        type="button"
+                                        onclick="window.location.assign('/relatorio')"
+                                        style="
+                                                padding-left: 2.5rem;
+                                                padding-right: 2.5rem;
+                                                margin: 10px;
+                                            "
+                                >
+                                    Eu sou Professor
+                                </button>
+                            </div>
+                            <div  class="col-md-auto">
+                                <button
+                                        class="btn btn-warning btn-sm"
+                                        type="button"
+                                        onclick="window.location.assign('/cadastroaluno')"
+                                        style="
+                                                padding-left: 2.5rem;
+                                                padding-right: 2.5rem;
+                                                margin: 10px;
+                                            "
+                                >
+                                    Secretaria
+                                </button>
                             </div>
                         </div>
                     </div>

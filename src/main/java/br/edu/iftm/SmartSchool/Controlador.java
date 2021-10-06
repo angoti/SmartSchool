@@ -15,6 +15,8 @@ public class Controlador {
     String login(){
         return "login";
     }
+    @RequestMapping("/auth")
+    String auth(){return "loginAuth";}
     @RequestMapping("/aluno")
     String aluno(){
         return "pagAluno";
