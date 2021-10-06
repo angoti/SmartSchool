@@ -22,7 +22,28 @@
         />
         <style>
             .input-group{
-                padding: 10px;
+                padding: 15px;
+            }
+            .mg-li{
+              margin-top: 50px;
+            }
+            .mg-li-b{
+              margin-bottom: 20px;
+            }
+            a:link {
+              color:white;
+              font-weight: bold;
+              text-decoration:none;
+              list-style: none;
+              font-size: 30px;
+            }
+            a:visited {
+              color: white;
+              text-decoration:none;
+            }
+            a:hover {
+              color:white;
+              background-color: rgb(59, 59, 54);
             }
         </style>
     </head>
@@ -31,13 +52,13 @@
 
         <main class="container">
           <ul class="nav justify-content-center">
-            <li class="nav-item">
+            <li class="nav-item mg-li">
               <a class="nav-link active" aria-current="page" href="/manteralunos">Manutenção Cadastro Alunos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mg-li">
               <a class="nav-link" href="/mantersala">Manutenção Cadastro Professores</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mg-li-b">
               <a class="nav-link" href="/manterprofessores">Manutenção Cadastro de Salas</a>
             </li>
           </ul>
@@ -46,14 +67,30 @@
                     <input type="text" class="form-control" placeholder="Código da sala/Turma...">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
                   </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Professores</span>
+                    <select id="inputState" class="form-select">
+                        <option selected>Selecione</option>
+                        <option>Alexandre</option>
+                        <option>Bruno</option>
+                        <option>Edson</option>
+                        <option>Wilton</option>
+                    </select>
+                </div>
                   <div class="input-group">
                     <span class="input-group-text">Código da Turma</span>
                     <input type="text" aria-label="Código" class="form-control">
                   </div>
-                  <div class="input-group">
-                    <span class="input-group-text">Nome do Professor</span>
-                    <input type="text" aria-label="Nome" class="form-control">
-                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">Alunos</span>
+                    <select id="inputState" class="form-select">
+                        <option selected>Selecione</option>
+                        <option>Arthur José dos Santos</option>
+                        <option>Solange Brasileiro Nascimento</option>
+                        <option>Ezequiel da Silva Sauro</option>
+                        <option>Eduardo Pereira Pinto</option>
+                    </select>
+                </div>
                   <div class="input-group">
                     <span class="input-group-text">Qtd. Alunos</span>
                     <input type="number" aria-label="Qtd" class="form-control">
@@ -66,7 +103,13 @@
                     <span class="input-group-text">Local da Sala</span>
                     <input type="text" aria-label="sala" class="form-control">
                   </div>
+                  <div class="col-12 text-center p-4">
+                    <button type="submit" class="btn btn-primary">
+                        Gerar relatorio
+                    </button>
+                </div>
             </form>
+
         </main>
 
         <div th:replace="fragmentos/footer :: footer"></div>
