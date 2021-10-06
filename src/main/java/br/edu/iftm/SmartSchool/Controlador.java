@@ -15,6 +15,8 @@ public class Controlador {
     String login(){
         return "login";
     }
+    @RequestMapping("/auth")
+    String auth(){return "loginAuth";}
     @RequestMapping("/aluno")
     String aluno(){
         return "pagAluno";
@@ -47,4 +49,12 @@ public class Controlador {
     String mantersala(){
         return "manterSalas";
     }
+    @RequestMapping("/cadastrosala")
+    String cadastroSala(){return "cadastroSala";}
+    @RequestMapping("/cadastroaluno")
+    String cadastroAluno(){return "cadastroAluno";}
+    @RequestMapping("/cadastroprofessor")
+    String cadastroProfessor(){return "cadastroProfessor";}
+    @RequestMapping("/gerenciamensalidade")
+    String gerenciaMensalidade(){return "gerenciaMensalidade";}
 }
