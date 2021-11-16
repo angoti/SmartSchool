@@ -1,4 +1,4 @@
-package br.edu.iftm.SmartSchool;
+package br.edu.iftm.SmartSchool.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -33,10 +33,6 @@ public class Controlador {
     String respostasalas(){
         return "respostaSala";
     }
-    @RequestMapping("/manteralunos")
-    String manteralunos(){
-        return "manterAlunos";
-    }
     @RequestMapping("/manterprofessores")
     String manterprofessores(){
         return "manterProfessores";
@@ -46,11 +42,15 @@ public class Controlador {
         return "manterSalas";
     }
     @RequestMapping("/cadastrosala")
-    String cadastroSala(){return "cadastroSala";}
-    @RequestMapping("/cadastroaluno")
-    String cadastroAluno(){return "cadastroAluno";}
+    String cadastroSala(){
+        return "cadastroSala";
+    }
     @RequestMapping("/cadastroprofessor")
-    String cadastroProfessor(){return "cadastroProfessor";}
+    String cadastroProfessor(){
+        return "cadastroProfessor";
+    }
     @RequestMapping("/gerenciamensalidade")
-    String gerenciaMensalidade(){return "gerenciaMensalidade";}
+    String gerenciaMensalidade(){
+        return "gerenciaMensalidade";
+    }
 }
