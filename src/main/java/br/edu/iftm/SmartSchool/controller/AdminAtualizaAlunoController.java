@@ -49,14 +49,23 @@ public class AdminAtualizaAlunoController {
             return "manterAlunos";
         }
         identidadeAluno = identidadeAluno.replace(".", "").replace("-", "");
-		if(Utils.isLong(identidadeAluno)){
+		//Verifica se e CPF ou NOME//
+        if(Utils.isLong(identidadeAluno)){
+            //Validação deu CPF na busca//
             if(identidadeAluno.length() < 11 || identidadeAluno.length() > 11){
                 model.addAttribute("aluno", aluno);
                 return "manterAlunos";
             }
-            aluno = repo.buscaPorCpf(identidadeAluno);
+            Aluno a = repo.buscaPorCpf(identidadeAluno);
+            if(a != null){
+                aluno = a;
+            }
         } else{
-            aluno = repo.buscaPorNome(identidadeAluno);
+            //Validação deu nome na busca//
+            Aluno a = repo.buscaPorNome(identidadeAluno);
+            if(a != null){
+                aluno = a;
+            }
         }
         model.addAttribute("aluno", aluno);
 		return "manterAlunos";
