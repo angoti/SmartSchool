@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import br.edu.iftm.SmartSchool.model.Aluno;
+import br.edu.iftm.SmartSchool.model.Usuario;
 
 @Repository
 public class AlunoRepository {
@@ -18,9 +19,9 @@ public class AlunoRepository {
     }
 
     public List<Aluno> buscaTodosAlunos() {
-        String consulta = "SELECT * FROM CADASTROALUNO;";
+        String consulta = "SELECT * FROM ALUNO;";
         return jdbc.query(consulta,
-                (resultados, numeroDaLinha) -> new Aluno(
+                (resultados, numeroDaLinha) -> new Usuario(
                     resultados.getString("nome"), 
                     resultados.getLong("id"), 
                     resultados.getString("cpf"), 

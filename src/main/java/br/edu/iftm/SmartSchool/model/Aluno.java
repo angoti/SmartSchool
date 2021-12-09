@@ -3,137 +3,82 @@ package br.edu.iftm.SmartSchool.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Aluno {
-    private String nome;
-    private Long id;
-    private String cpf;
+    private String matricula;
+    private String nome_mae;
+    private String nome_pai;
     @DateTimeFormat (pattern="dd/MM/yyyy")
-    private String dt_nascimento;
-    private String email;
-    private String pai;
-    private String mae;
-    private String telefone;
-    private String endereco;
-    private String cidade;
-    private String pais;
-    private String cert_nascimento;
+    private String data_matricula;
+    private int tel_responsavel;
+    private String cod_sala;
+    private Usuario login;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, Long id, String cpf, String dt_nascimento, String email, String pai, String mae, String telefone,
-        String endereco, String cidade, String pais, String cert_nascimento) {
-        this.nome = nome;
-        this.id = id;
-        this.cpf = cpf;
-        this.dt_nascimento = dt_nascimento;
-        this.email = email;
-        this.pai = pai;
-        this.mae = mae;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.cidade = cidade;
-        this.pais = pais;
-        this.cert_nascimento = cert_nascimento;
-    }
-    public Aluno(String nome, Long id, String cpf) {
-        this.nome = nome;
-        this.id = id;
-        this.cpf = cpf;
+    public Aluno(String matricula, String nome_mae, String nome_pai, String data_matricula, int tel_responsavel, String cod_sala, Usuario login) {
+        this.matricula = matricula;
+        this.nome_mae = nome_mae;
+        this.nome_pai = nome_pai;
+        this.data_matricula = data_matricula;
+        this.tel_responsavel = tel_responsavel;
+        this.cod_sala = cod_sala;
+        this.login = login;
     }
 
-    public String getNome() {
-        return this.nome;
+    public String getMatricula() {
+        return this.matricula;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
-    public Long getId() {
-        return this.id;
+    public String getNome_mae() {
+        return this.nome_mae;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setNome_mae(String nome_mae) {
+        this.nome_mae = nome_mae;
     }
 
-    public String getCpf() {
-        return this.cpf;
+    public String getNome_pai() {
+        return this.nome_pai;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNome_pai(String nome_pai) {
+        this.nome_pai = nome_pai;
     }
 
-    public String getDt_nascimento() {
-        return this.dt_nascimento;
+    public String getData_matricula() {
+        return this.data_matricula;
     }
 
-    public void setDt_nascimento(String dt_nascimento) {
-        this.dt_nascimento = dt_nascimento;
+    public void setData_matricula(String data_matricula) {
+        this.data_matricula = data_matricula;
     }
 
-    public String getEmail() {
-        return this.email;
+    public int getTel_responsavel() {
+        return this.tel_responsavel;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTel_responsavel(int tel_responsavel) {
+        this.tel_responsavel = tel_responsavel;
     }
 
-    public String getPai() {
-        return this.pai;
+    public String getCod_sala() {
+        return this.cod_sala;
     }
 
-    public void setPai(String pai) {
-        this.pai = pai;
+    public void setCod_sala(String cod_sala) {
+        this.cod_sala = cod_sala;
     }
 
-    public String getMae() {
-        return this.mae;
+    public Usuario getLogin() {
+        return this.login;
     }
 
-    public void setMae(String mae) {
-        this.mae = mae;
+    public void setLogin(Usuario login) {
+        this.login = login;
     }
-
-    public String getEndereco() {
-        return this.endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCert_nascimento() {
-        return this.cert_nascimento;
-    }
-
-    public void setCert_nascimento(String cert_nascimento) {
-        this.cert_nascimento = cert_nascimento;
-    }
-
-    public String getCidade() {
-        return this.cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getPais() {
-        return this.pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
+    
 }
