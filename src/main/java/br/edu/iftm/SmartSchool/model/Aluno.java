@@ -1,139 +1,84 @@
 package br.edu.iftm.SmartSchool.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import java.sql.Date;
 
-public class Aluno {
-    private String nome;
-    private Long id;
-    private String cpf;
-    @DateTimeFormat (pattern="dd/MM/yyyy")
-    private String dt_nascimento;
-    private String email;
-    private String pai;
-    private String mae;
-    private String telefone;
-    private String endereco;
-    private String cidade;
-    private String pais;
-    private String cert_nascimento;
+import javax.validation.constraints.NotNull;
+
+public class Aluno implements java.io.Serializable {
+    private Usuario usuario;
+    private String matricula;
+    private String nomeMae;
+    private String nomePai;
+    private Date dataMatricula;
+    @NotNull (message = "O telefone não pode ser vazio!")
+    private Integer telResponsavel;
 
     public Aluno() {
     }
 
-    public Aluno(String nome, Long id, String cpf, String dt_nascimento, String email, String pai, String mae, String telefone,
-        String endereco, String cidade, String pais, String cert_nascimento) {
-        this.nome = nome;
-        this.id = id;
-        this.cpf = cpf;
-        this.dt_nascimento = dt_nascimento;
-        this.email = email;
-        this.pai = pai;
-        this.mae = mae;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.cidade = cidade;
-        this.pais = pais;
-        this.cert_nascimento = cert_nascimento;
-    }
-    public Aluno(String nome, Long id, String cpf) {
-        this.nome = nome;
-        this.id = id;
-        this.cpf = cpf;
+    public Aluno(Usuario usuario, String matricula, String nomeMae, String nomePai, Date dataMatricula,
+            Integer telResponsavel) {
+        this.usuario = usuario;
+        this.matricula = matricula;
+        this.nomeMae = nomeMae;
+        this.nomePai = nomePai;
+        this.dataMatricula = dataMatricula;
+        this.telResponsavel = telResponsavel;
     }
 
-    public String getNome() {
-        return this.nome;
+    /*public Aluno(Usuario usuario, String login, Integer cpf) {
+        this.login = usuario.getLogin();
+        this.cpf = usuario.getCpf();
+    }*/
+
+    public Usuario getUsuario() {
+        return this.usuario;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Long getId() {
-        return this.id;
+    public String getMatricula() {
+        return this.matricula;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
-    public String getCpf() {
-        return this.cpf;
+    public String getNomeMae() {
+        return this.nomeMae;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
     }
 
-    public String getDt_nascimento() {
-        return this.dt_nascimento;
+    public String getNomePai() {
+        return this.nomePai;
     }
 
-    public void setDt_nascimento(String dt_nascimento) {
-        this.dt_nascimento = dt_nascimento;
+    public void setNomePai(String nomePai) {
+        this.nomePai = nomePai;
     }
 
-    public String getEmail() {
-        return this.email;
+    public Date getDataMatricula() {
+        // SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        // return formatter.format(dataMatricula);
+        return dataMatricula;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDataMatricula(Date dataMatricula) {
+        this.dataMatricula = dataMatricula;
     }
 
-    public String getPai() {
-        return this.pai;
+    public Integer getTelResponsavel() {
+        return this.telResponsavel;
     }
 
-    public void setPai(String pai) {
-        this.pai = pai;
+    public void setTelResponsavel(Integer telResponsavel) {
+        this.telResponsavel = telResponsavel;
     }
 
-    public String getMae() {
-        return this.mae;
-    }
-
-    public void setMae(String mae) {
-        this.mae = mae;
-    }
-
-    public String getEndereco() {
-        return this.endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCert_nascimento() {
-        return this.cert_nascimento;
-    }
-
-    public void setCert_nascimento(String cert_nascimento) {
-        this.cert_nascimento = cert_nascimento;
-    }
-
-    public String getCidade() {
-        return this.cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public String getPais() {
-        return this.pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
 }
