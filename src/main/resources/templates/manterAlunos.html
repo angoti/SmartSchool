@@ -68,7 +68,7 @@
                 <input
                     type="text"
                     class="form-control"
-                    placeholder="Nome ou CPF"
+                    placeholder="Login ou CPF"
                     th:name="identidadeAluno"
                 />
                 <button
@@ -86,108 +86,157 @@
                 th:object="${aluno}"
             >
                 <div class="input-group">
-                    <span class="input-group-text">Nome</span>
+                    <span class="input-group-text">Login</span>
                     <input
-                        th:field="*{nome}"
                         type="text"
-                        aria-label="Nome"
+                        aria-label="Login"
                         class="form-control"
+                        th:field="*{usuario.login}"
+                        maxlength="10"
+                        readonly
                     />
                 </div>
                 <div class="input-group">
-                    <span class="input-group-text">CPF</span>
+                    <span class="input-group-text">RG</span>
                     <input
-                        th:field="*{cpf}"
                         type="number"
-                        readonly
-                        aria-label="CPF"
+                        aria-label="RG"
                         class="form-control"
+                        th:field="*{usuario.rg}"
+                        maxlength="11"
+                        required
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Telefone</span>
+                    <input
+                        type="number"
+                        aria-label="Telefone"
+                        class="form-control"
+                        th:field="*{usuario.telefone}"
+                        maxlength="11"
+                        required
+                    />
+                    <div
+                        class="alert alert-warning"
+                        th:if="${#fields.hasErrors('usuario.telefone')}"
+                        th:errors="*{usuario.telefone}"
+                    ></div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Endereço</span>
+                    <input
+                        type="text"
+                        aria-label="Endereco"
+                        class="form-control"
+                        th:field="*{usuario.endereco}"
+                        required
                     />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Data de Nascimento</span>
                     <input
-                        th:field="*{dt_nascimento}"
                         type="date"
                         aria-label="Data de Nascimento"
                         class="form-control"
+                        th:field="*{usuario.dataNasc}"
+                        required
                     />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">E-mail</span>
                     <input
-                        th:field="*{email}"
                         type="email"
                         aria-label="E-mail"
                         class="form-control"
+                        th:field="*{usuario.email}"
+                        required
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Nome</span>
+                    <input
+                        type="text"
+                        aria-label="Nome"
+                        class="form-control"
+                        th:field="*{usuario.nome}"
+                        required
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">CPF</span>
+                    <input
+                        type="number"
+                        aria-label="CPF"
+                        class="form-control"
+                        th:field="*{usuario.cpf}"
+                        maxlength="11"
+                        minlength="11"
+                        readonly
+                    />
+                </div>
+                <div
+                    class="alert alert-warning"
+                    th:if="${#fields.hasErrors('usuario.cpf')}"
+                    th:errors="*{usuario.cpf}"
+                ></div>
+                <div class="input-group">
+                    <span class="input-group-text">Matricula</span>
+                    <input
+                        type="text"
+                        aria-label="Matricula"
+                        class="form-control"
+                        th:field="*{matricula}"
+                        maxlength="14"
                     />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Nome da Mãe</span>
                     <input
-                        th:field="*{mae}"
                         type="text"
                         aria-label="Nome da Mãe"
                         class="form-control"
+                        th:field="*{nomeMae}"
+                        required
                     />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Nome do Pai</span>
                     <input
-                        th:field="*{pai}"
                         type="text"
                         aria-label="Nome do Pai"
                         class="form-control"
+                        th:field="*{nomePai}"
+                        required
+                    />
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Data da Matrícula</span>
+                    <input
+                        type="date"
+                        aria-label="DataMatricula"
+                        class="form-control"
+                        th:field="*{dataMatricula}"
                     />
                 </div>
                 <div class="input-group">
                     <span class="input-group-text"
-                        >Telefone do responsavel</span
+                        >Telefone do responsável</span
                     >
                     <input
-                        th:field="*{telefone}"
-                        type="tel"
+                        type="number"
                         aria-label="Telefone"
                         class="form-control"
+                        th:field="*{telResponsavel}"
+                        maxlength="11"
+                        required
                     />
                 </div>
-                <div class="input-group">
-                    <span class="input-group-text">Endereço</span>
-                    <input
-                        th:field="*{endereco}"
-                        type="text"
-                        aria-label="Endereço"
-                        class="form-control"
-                    />
-                </div>
-                <div>
-                    <div class="input-group">
-                        <span class="input-group-text">Cidade/País</span>
-                        <input
-                            th:field="*{cidade}"
-                            type="text"
-                            aria-label="Nome"
-                            class="form-control"
-                        />
-                        <input
-                            th:field="*{pais}"
-                            type="text"
-                            aria-label="CPF"
-                            class="form-control"
-                        />
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-text"
-                            >Certidão de Nascimento</span
-                        >
-                        <input
-                            th:field="*{cert_nascimento}"
-                            type="text"
-                            aria-label="Certidão"
-                            class="form-control"
-                        />
-                    </div>
-                </div>
+                <div
+                    class="alert alert-warning"
+                    th:if="${#fields.hasErrors('telResponsavel')}"
+                    th:errors="*{telResponsavel}"
+                ></div>
                 <div class="d-grid gap-2 col-6 mx-auto p-3">
                     <button class="btn btn-primary btn-sm" type="submit">
                         Alterar
@@ -195,7 +244,11 @@
                 </div>
             </form>
             <form th:action="@{/manteralunos}" th:method="delete">
-                <input type="hidden" th:name="cpf" th:value="${aluno?.cpf}" />
+                <input
+                    type="hidden"
+                    th:name="login"
+                    th:value="${aluno?.usuario.login}"
+                />
                 <div class="d-grid gap-2 col-6 mx-auto p-3">
                     <button class="btn btn-primary btn-sm" type="submit">
                         Apagar
