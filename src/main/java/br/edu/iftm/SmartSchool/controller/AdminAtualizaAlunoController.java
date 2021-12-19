@@ -85,18 +85,22 @@ public class AdminAtualizaAlunoController {
 	}
 
     @RequestMapping(value = "/manteralunos", method = RequestMethod.POST)
-	public String atualizarAluno(@RequestParam(value = "login", required = true) String login, Aluno aluno, Model model) {
-		repo.atualizarAluno(login, aluno);
-        model.addAttribute("sucessmensage", "Aluno atualizado com sucesso!");
+	public String atualizarAluno(@RequestParam(value = "usuario.cpf", required = true) String cpf, Aluno aluno, Model model) {
+		Integer result = repo.atualizarAluno(cpf, aluno);
+        if(result != null && result > 0){
+            model.addAttribute("sucessmensage", "Aluno atualizado com sucesso!");
+        }
         model.addAttribute("alunoModel", new Aluno());
 		return "manterAlunos";
 	}
 
 	@RequestMapping(value = "/manteralunos", method = RequestMethod.DELETE)
 	public String excluirAluno(@RequestParam(value = "login", required = true) String login, Model model, RedirectAttributes ra) {
-		repo.excluirAluno(login);
+		Integer result= repo.excluirAluno(login);
 
-        ra.addFlashAttribute("sucessmensage", "Aluno excluido com sucesso!");
+        if(result != null && result > 0){
+            ra.addFlashAttribute("sucessmensage", "Aluno excluido com sucesso!");
+        }
 		return "redirect:/manteralunos";
 	}
 }
