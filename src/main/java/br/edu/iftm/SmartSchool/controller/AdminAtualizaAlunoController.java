@@ -96,9 +96,11 @@ public class AdminAtualizaAlunoController {
 
 	@RequestMapping(value = "/manteralunos", method = RequestMethod.DELETE)
 	public String excluirAluno(@RequestParam(value = "login", required = true) String login, Model model, RedirectAttributes ra) {
-		repo.excluirAluno(login);
+		Integer result= repo.excluirAluno(login);
 
-        ra.addFlashAttribute("sucessmensage", "Aluno excluido com sucesso!");
+        if(result != null && result > 0){
+            ra.addFlashAttribute("sucessmensage", "Aluno excluido com sucesso!");
+        }
 		return "redirect:/manteralunos";
 	}
 }
