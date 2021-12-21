@@ -24,16 +24,16 @@ public class AlunoRepository {
                                 (res, linha) -> new Aluno(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
                                                                 res.getInt("rg"),
-                                                                res.getInt("telefone"), res.getDate("data_nasc"),
+                                                                res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
                                                 res.getString("matricula"), res.getString("nome_mae"),
                                                 res.getString("nome_pai"),
-                                                res.getDate("data_matricula"), res.getInt("tel_responsavel")));
+                                                res.getDate("data_matricula"), res.getString("tel_responsavel")));
         }
 
-        public int gravaAluno(Aluno aluno) {
+        public Integer gravaAluno(Aluno aluno) {
                 Usuario us = aluno.getUsuario();
                 String sqlUsuario = "insert into usuario(login, senha, rg, telefone, data_nasc, email, nome, cpf, endereco) values(?,?,?,?,?,?,?,?,?)";
                 String sqlAluno = "insert into aluno(matricula,nome_mae,nome_pai,data_matricula,tel_responsavel,usuario_login) values(?,?,?,?,?,?)";
@@ -62,17 +62,17 @@ public class AlunoRepository {
 
         public Aluno buscaPorLogin(String login) {
                 return jdbc.queryForObject(
-                                "SELECT * FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login= ? ;",
+                                "SELECT login FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login = ? ;",
                                 (res, linha) -> new Aluno(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
                                                                 res.getInt("rg"),
-                                                                res.getInt("telefone"), res.getDate("data_nasc"),
+                                                                res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
                                                 res.getString("matricula"), res.getString("nome_mae"),
                                                 res.getString("nome_pai"),
-                                                res.getDate("data_matricula"), res.getInt("tel_responsavel")),
+                                                res.getDate("data_matricula"), res.getString("tel_responsavel")),
                                 login);
         }
 
@@ -86,7 +86,7 @@ public class AlunoRepository {
                                                                 new Usuario(res.getString("login"),
                                                                                 res.getString("senha"),
                                                                                 res.getInt("rg"),
-                                                                                res.getInt("telefone"),
+                                                                                res.getString("telefone"),
                                                                                 res.getDate("data_nasc"),
                                                                                 res.getString("email"),
                                                                                 res.getString("nome"),
@@ -95,7 +95,7 @@ public class AlunoRepository {
                                                                 res.getString("matricula"), res.getString("nome_mae"),
                                                                 res.getString("nome_pai"),
                                                                 res.getDate("data_matricula"),
-                                                                res.getInt("tel_responsavel"));
+                                                                res.getString("tel_responsavel"));
                                         }, new Object[] { cpf });
                 } catch (Exception e) {
                         System.out.println(e.getLocalizedMessage());

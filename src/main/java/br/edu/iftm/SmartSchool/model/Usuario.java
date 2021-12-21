@@ -5,14 +5,12 @@ import java.sql.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
-
 public class Usuario implements java.io.Serializable {
     private String login;
 	private String senha;
 	private Integer rg;
 	@NotNull (message = "O telefone não pode ser vazio!")
-	private Integer telefone;
+	private String telefone;
 	private Date dataNasc;
 	private String email;
 	private String nome;
@@ -23,7 +21,7 @@ public class Usuario implements java.io.Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String login, String senha, Integer rg, Integer telefone, Date dataNasc, String email, String nome,
+	public Usuario(String login, String senha, Integer rg, String telefone, Date dataNasc, String email, String nome,
 			String cpf, String endereco) {
 		this.login = login;
 		this.senha = senha;
@@ -60,11 +58,11 @@ public class Usuario implements java.io.Serializable {
 		this.rg = rg;
 	}
 
-	public Integer getTelefone() {
+	public String getTelefone() {
 		return this.telefone;
 	}
 
-	public void setTelefone(Integer telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 

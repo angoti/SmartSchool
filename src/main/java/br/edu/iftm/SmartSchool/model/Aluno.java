@@ -11,13 +11,13 @@ public class Aluno implements java.io.Serializable {
     private String nomePai;
     private Date dataMatricula;
     @NotNull (message = "O telefone não pode ser vazio!")
-    private Integer telResponsavel;
+    private String telResponsavel;
 
     public Aluno() {
     }
 
     public Aluno(Usuario usuario, String matricula, String nomeMae, String nomePai, Date dataMatricula,
-            Integer telResponsavel) {
+            String telResponsavel) {
         this.usuario = usuario;
         this.matricula = matricula;
         this.nomeMae = nomeMae;
@@ -73,11 +73,11 @@ public class Aluno implements java.io.Serializable {
         this.dataMatricula = dataMatricula;
     }
 
-    public Integer getTelResponsavel() {
+    public String getTelResponsavel() {
         return this.telResponsavel;
     }
 
-    public void setTelResponsavel(Integer telResponsavel) {
+    public void setTelResponsavel(String telResponsavel) {
         this.telResponsavel = telResponsavel;
     }
 

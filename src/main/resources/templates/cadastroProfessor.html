@@ -42,38 +42,113 @@
       <a class="nav-link" href="/cadastrosala">Cadastrar Salas de Aula</a>
     </li>
   </ul>
-  <form action="" class="vh-100">
+
+    <div
+        class="alert alert-danger"
+        role="alert"
+        th:if="${!#strings.isEmpty(dangermensage)}"
+      >
+        <span th:text="${dangermensage}">!</span>
     </div>
+    <div
+        class="alert alert-success"
+        role="alert"
+        th:if="${!#strings.isEmpty(sucessmensage)}"
+      >
+        <span th:text="${sucessmensage}">!</span>
+    </div>
+
+  <form 
+      class="vh-100"
+      th:action="@{/cadastroprofessor}"
+      method="POST"
+      th:object="${professor}"
+  >
+
+    <div class="input-group">
+      <span class="input-group-text">Login</span>
+      <input type="text"
+                        aria-label="Nome"
+                        class="form-control"
+                        th:field="*{usuario.nome}"
+                        required>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text">Senha</span>
+      <input type="text"
+                        aria-label="Nome"
+                        class="form-control"
+                        th:field="*{usuario.senha}"
+                        required>
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-text">Código Professor</span>
+      <input type="text"
+                        aria-label="Nome"
+                        class="form-control"
+                        th:field="*{professor.cod_professor}"
+                        required>
+    </div>
+
     <div class="input-group">
       <span class="input-group-text">Nome</span>
-      <input type="text" aria-label="Nome" class="form-control">
+      <input type="text"
+                        aria-label="Nome"
+                        class="form-control"
+                        th:field="*{usuario.nome}"
+                        required>
     </div>
+
     <div class="input-group">
       <span class="input-group-text">CPF</span>
-      <input type="number" aria-label="CPF" class="form-control">
+      <input type="number"
+                        aria-label="CPF"
+                        class="form-control"
+                        th:field="*{usuario.cpf}"
+                        maxlength="11"
+                        minlength="11"
+                        required>
     </div>
+
     <div class="input-group">
       <span class="input-group-text">Data de Nascimento</span>
-      <input type="date" aria-label="Data de Nascimento" class="form-control">
+      <input type="date"
+                        aria-label="Data de Nascimento"
+                        class="form-control"
+                        th:field="*{usuario.dataNasc}"
+                        required>
     </div>
+
     <div class="input-group">
       <span class="input-group-text">E-mail</span>
-      <input type="email" aria-label="E-mail" class="form-control">
+      <input type="email"
+                        aria-label="E-mail"
+                        class="form-control"
+                        th:field="*{usuario.email}"
+                        required>
     </div>
+
     <div class="input-group">
       <span class="input-group-text">Telefone</span>
-      <input type="tel" aria-label="Telefone" class="form-control">
+      <input type="number"
+                        aria-label="Telefone"
+                        class="form-control"
+                        th:field="*{usuario.telefone}"
+                        maxlength="11"
+                        required>
     </div>
+
     <div class="input-group">
       <span class="input-group-text">Endereço</span>
-      <input type="text" aria-label="Endereço" class="form-control">
+      <input type="text"
+                        aria-label="Endereco"
+                        class="form-control"
+                        th:field="*{usuario.endereco}"
+                        required>
     </div>
-    <div>
-      <div class="input-group">
-        <span class="input-group-text">Sala de Aula</span>
-        <input type="text" aria-label="sala" class="form-control">
-      </div>
-    </div>
+    
     <div class="d-grid gap-2 col-6 mx-auto p-3">
       <button
               class="btn btn-primary btn-sm"

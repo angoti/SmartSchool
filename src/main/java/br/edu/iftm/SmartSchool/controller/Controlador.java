@@ -39,7 +39,7 @@ public class Controlador {
     }
     @RequestMapping("/mantersala")
     String mantersala(){
-        return "manterSalas";
+        return "manterSala";
     }
     @RequestMapping("/cadastrosala")
     String cadastroSala(){
@@ -48,9 +48,5 @@ public class Controlador {
     @RequestMapping("/cadastroprofessor")
     String cadastroProfessor(){
         return "cadastroProfessor";
-    }
-    @RequestMapping("/gerenciamensalidade")
-    String gerenciaMensalidade(){
-        return "gerenciaMensalidade";
     }
 }
