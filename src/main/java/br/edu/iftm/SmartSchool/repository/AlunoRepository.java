@@ -80,7 +80,7 @@ public class AlunoRepository {
                 Aluno aluno = null;
                 try {
                         aluno = jdbc.queryForObject(
-                                        "select * from aluno, usuario where usuario.login = aluno.usuario_login and usuario.cpf = ?",
+                                        "select * from aluno, usuario where usuario.login = aluno.usuario_login and usuario.cpf = ? ;",
                                         (res, rowNum) -> {
                                                 return new Aluno(
                                                                 new Usuario(res.getString("login"),
