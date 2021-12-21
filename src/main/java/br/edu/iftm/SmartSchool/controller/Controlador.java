@@ -33,24 +33,4 @@ public class Controlador {
     String respostasalas(){
         return "respostaSala";
     }
-    @RequestMapping("/manterprofessores")
-    String manterprofessores(){
-        return "manterProfessores";
-    }
-    @RequestMapping("/mantersala")
-    String mantersala(){
-        return "manterSalas";
-    }
-    @RequestMapping("/cadastrosala")
-    String cadastroSala(){
-        return "cadastroSala";
-    }
-    @RequestMapping("/cadastroprofessor")
-    String cadastroProfessor(){
-        return "cadastroProfessor";
-    }
-    @RequestMapping("/gerenciamensalidade")
-    String gerenciaMensalidade(){
-        return "gerenciaMensalidade";
-    }
 }

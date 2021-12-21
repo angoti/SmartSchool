@@ -1,88 +1,83 @@
 package br.edu.iftm.SmartSchool.repository;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import br.edu.iftm.SmartSchool.model.Aluno;
+import br.edu.iftm.SmartSchool.model.Professor;
 import br.edu.iftm.SmartSchool.model.Usuario;
 
 @Repository
-public class AlunoRepository {
+public class ProfessorRepository {
 
         @Autowired
         JdbcTemplate jdbc;
 
-        public AlunoRepository() {
+        public ProfessorRepository() {
 
         }
 
-        public List<Aluno> buscaTodosAlunos() {
-                String consulta = "SELECT * FROM aluno, usuario where usuario.login = aluno.usuario_login;";
+        public List<Professor> buscaTodosProfessores() {
+                String consulta = "SELECT * FROM professor, usuario where usuario.login = professor.usuario_login;";
                 return jdbc.query(consulta,
-                                (res, linha) -> new Aluno(
+                                (res, linha) -> new Professor(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
                                                                 res.getInt("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
-                                                res.getString("matricula"), res.getString("nome_mae"),
-                                                res.getString("nome_pai"),
-                                                res.getDate("data_matricula"), res.getString("tel_responsavel")));
+                                                res.getInt("cod_professor")));
         }
 
-        public Integer gravaAluno(Aluno aluno) {
-                Usuario us = aluno.getUsuario();
+        public Integer gravarProfessor(Professor professor) {
+                Usuario us = professor.getUsuario();
                 String sqlUsuario = "insert into usuario(login, senha, rg, telefone, data_nasc, email, nome, cpf, endereco) values(?,?,?,?,?,?,?,?,?)";
-                String sqlAluno = "insert into aluno(matricula,nome_mae,nome_pai,data_matricula,tel_responsavel,usuario_login) values(?,?,?,?,?,?)";
+                String sqlProfessor = "insert into professor(cod_professor, usuario_login) values(?,?)";
                 jdbc.update(sqlUsuario, us.getLogin(), us.getSenha(), us.getRg(), us.getTelefone(), us.getDataNasc(),
                                 us.getEmail(), us.getNome(), us.getCpf(), us.getEndereco());
-                return jdbc.update(sqlAluno, aluno.getMatricula(), aluno.getNomeMae(), aluno.getNomePai(),
-                                aluno.getDataMatricula(), aluno.getTelResponsavel(), aluno.getUsuario().getLogin());
+                return jdbc.update(sqlProfessor, professor.getCod_professor(), professor.getUsuario().getLogin());
         }
 
-        public Integer excluirAluno(String id) {
-                String sqlAluno = "delete from aluno where usuario_login = ?";
-                String sqlUsuario = "delete from usuario where login= ?";
-                jdbc.update(sqlAluno, id);
+        public Integer excluirProfessor(String id) {
+                String sqlProfessor = "delete from professor where usuario_login = ?";
+                String sqlUsuario = "delete from usuario where login = ?";
+                jdbc.update(sqlProfessor, id);
                 return jdbc.update(sqlUsuario, id);
         }
 
-        public Integer atualizarAluno(String cpf, Aluno aluno) {
-                Usuario us = aluno.getUsuario();
-                String sqlAluno = "update aluno set matricula = ?,nome_mae = ?,nome_pai = ?,data_matricula = ?,tel_responsavel = ? where usuario_login = ?";
+        public Integer atualizarProfessor(String cpf, Professor professor) {
+                Usuario us = professor.getUsuario();
+                String sqlProfessor = "update professor set cod_professor = ?, where usuario_login = ?";
                 String sqlUsuario = "update usuario set rg = ?, telefone = ?, data_nasc = ?, email = ?, nome = ?, cpf = ?, endereco = ? where login = ?";
-                jdbc.update(sqlAluno, aluno.getMatricula(), aluno.getNomeMae(), aluno.getNomePai(),
-                                aluno.getDataMatricula(), aluno.getTelResponsavel(), aluno.getUsuario().getLogin());
+                jdbc.update(sqlProfessor, professor.getCod_professor(), professor.getUsuario().getLogin());
                 return jdbc.update(sqlUsuario, us.getRg(), us.getTelefone(), us.getDataNasc(), us.getEmail(),
                                 us.getNome(), us.getCpf(), us.getEndereco(), us.getLogin());
         }
 
-        public Aluno buscaPorLogin(String login) {
+        public Professor buscaPorLoginP(String login) {
                 return jdbc.queryForObject(
-                                "SELECT login FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login = ? ;",
-                                (res, linha) -> new Aluno(
+                                "SELECT login FROM professor, usuario where usuario.login = professor.usuario_login and usuario.login = ? ;",
+                                (res, linha) -> new Professor(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
                                                                 res.getInt("rg"),
                                                                 res.getString("telefone"), res.getDate("data_nasc"),
                                                                 res.getString("email"),
                                                                 res.getString("nome"), res.getString("cpf"),
                                                                 res.getString("endereco")),
-                                                res.getString("matricula"), res.getString("nome_mae"),
-                                                res.getString("nome_pai"),
-                                                res.getDate("data_matricula"), res.getString("tel_responsavel")),
+                                                res.getInt("cod_professor")),
                                 login);
         }
 
-        public Aluno buscaPorCpf(String cpf) {
-                Aluno aluno = null;
+        public Professor buscaPorCpfP(String cpf) {
+                Professor professor = null;
                 try {
-                        aluno = jdbc.queryForObject(
-                                        "select * from aluno, usuario where usuario.login = aluno.usuario_login and usuario.cpf = ? ;",
+                        professor = jdbc.queryForObject(
+                                        "select * from professor, usuario where usuario.login = professor.usuario_login and usuario.cpf = ?",
                                         (res, rowNum) -> {
-                                                return new Aluno(
+                                                return new Professor(
                                                                 new Usuario(res.getString("login"),
                                                                                 res.getString("senha"),
                                                                                 res.getInt("rg"),
@@ -92,14 +87,11 @@ public class AlunoRepository {
                                                                                 res.getString("nome"),
                                                                                 res.getString("cpf"),
                                                                                 res.getString("endereco")),
-                                                                res.getString("matricula"), res.getString("nome_mae"),
-                                                                res.getString("nome_pai"),
-                                                                res.getDate("data_matricula"),
-                                                                res.getString("tel_responsavel"));
+                                                                res.getInt("cod_professor"));
                                         }, new Object[] { cpf });
                 } catch (Exception e) {
                         System.out.println(e.getLocalizedMessage());
                 }
-                return aluno;
+                return professor;
         }
 }

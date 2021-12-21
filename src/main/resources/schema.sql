@@ -1,12 +1,12 @@
 CREATE TABLE `usuario`
 (
   `login` varchar
-(10) NOT NULL,
+(11) NOT NULL,
   `senha` varchar
 (10) NOT NULL,
   `rg` int
 (11) NOT NULL,
-  `telefone` int
+  `telefone` varchar
 (11) DEFAULT NULL,
   `data_nasc` date NOT NULL,
   `email` varchar
@@ -47,7 +47,7 @@ CREATE TABLE `aluno`
   `nome_pai` varchar
 (100) DEFAULT NULL,
   `data_matricula` date NOT NULL,
-  `tel_responsavel` int
+  `tel_responsavel` varchar
 (11) DEFAULT NULL,
   `usuario_login` varchar
 (10) NOT NULL,
@@ -81,6 +81,10 @@ CREATE TABLE `sala`
 (
   `cod_sala` int
 (11) NOT NULL,
+  `local_sala` varchar
+(200) NOT NULL,
+  `qtd_alunos` int
+(200) NOT NULL,
   `turma` varchar
 (10) DEFAULT NULL,
   PRIMARY KEY

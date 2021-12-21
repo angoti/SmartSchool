@@ -71,7 +71,6 @@
             </div>
             <form
                 th:action="@{/cadastroaluno}"
-                class=""
                 method="POST"
                 th:object="${aluno}"
             >
@@ -82,7 +81,7 @@
                         aria-label="Login"
                         class="form-control"
                         th:field="*{usuario.login}"
-                        maxlength="10"
+                        maxlength="11"
                         required
                     />
                 </div>
