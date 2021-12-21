@@ -5,8 +5,13 @@ import java.sql.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.validation.annotation.Validated;
+
+@Validated
 public class Usuario implements java.io.Serializable {
-    private String login;
+    //@Pattern(regexp = "/\\S+@", message="A palavra de login deve terminar com @")
+	@Size(max=10,message = "A palavra de login deve possuir no máximo 10 caracteres")
+	private String login;
 	private String senha;
 	private Integer rg;
 	@NotNull (message = "O telefone não pode ser vazio!")
@@ -14,7 +19,7 @@ public class Usuario implements java.io.Serializable {
 	private Date dataNasc;
 	private String email;
 	private String nome;
-	@Size(min = 11, message = "Minimo 11")
+	@Size(min = 11, message = "O CPF deve possuir exatamente 11 digitos, apenas números!")
 	private String cpf;
 	private String endereco;
 

@@ -62,7 +62,7 @@ public class AlunoRepository {
 
         public Aluno buscaPorLogin(String login) {
                 return jdbc.queryForObject(
-                                "SELECT login FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login = ? ;",
+                                "SELECT * FROM aluno, usuario where usuario.login = aluno.usuario_login and usuario.login = ? ;",
                                 (res, linha) -> new Aluno(
                                                 new Usuario(res.getString("login"), res.getString("senha"),
                                                                 res.getInt("rg"),

@@ -2,15 +2,20 @@ package br.edu.iftm.SmartSchool.model;
 
 import java.sql.Date;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class Aluno implements java.io.Serializable {
+    @Valid
     private Usuario usuario;
     private String matricula;
     private String nomeMae;
+    @Size(min=3,message="O nome pai com 3 letras")
     private String nomePai;
     private Date dataMatricula;
-    @NotNull (message = "O telefone não pode ser vazio!")
+
+    @NotNull(message = "O telefone não pode ser vazio!")
     private String telResponsavel;
 
     public Aluno() {
@@ -26,10 +31,12 @@ public class Aluno implements java.io.Serializable {
         this.telResponsavel = telResponsavel;
     }
 
-    /*public Aluno(Usuario usuario, String login, Integer cpf) {
-        this.login = usuario.getLogin();
-        this.cpf = usuario.getCpf();
-    }*/
+    /*
+     * public Aluno(Usuario usuario, String login, Integer cpf) {
+     * this.login = usuario.getLogin();
+     * this.cpf = usuario.getCpf();
+     * }
+     */
 
     public Usuario getUsuario() {
         return this.usuario;

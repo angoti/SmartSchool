@@ -84,6 +84,7 @@
                         maxlength="11"
                         required
                     />
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('usuario.login')}" th:errors="*{usuario.login}"></div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-text">Senha</span>
@@ -117,6 +118,7 @@
                         maxlength="11"
                         required
                     />
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('usuario.telefone')}" th:errors="*{usuario.telefone}"></div>
                     <div
                         class="alert alert-warning"
                         th:if="${#fields.hasErrors('usuario.telefone')}"
@@ -210,6 +212,7 @@
                         required
                     />
                 </div>
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('nomePai')}" th:errors="*{nomePai}"></div>
                 <div class="input-group">
                     <span class="input-group-text">Data da Matrícula</span>
                     <input
@@ -231,6 +234,7 @@
                         maxlength="11"
                         required
                     />
+                    <div class="alert alert-warning" th:if="${#fields.hasErrors('telResponsavel')}" th:errors="*{telResponsavel}"></div>
                 </div>
                 <div
                     class="alert alert-warning"

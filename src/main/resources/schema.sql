@@ -1,4 +1,4 @@
-CREATE TABLE `usuario`
+CREATE TABLE IF NOT EXISTS `usuario`
 (
   `login` varchar
 (11) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE `usuario`
   `nome` varchar
 (100) NOT NULL,
   `cpf` VARCHAR
-(11) NOT NULL,
+(11) NOT NULL UNIQUE,
   `endereco` varchar
 (200) DEFAULT NULL,
   PRIMARY KEY
@@ -22,7 +22,7 @@ CREATE TABLE `usuario`
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-CREATE TABLE `administrador`
+CREATE TABLE IF NOT EXISTS `administrador`
 (
   `cod_adm` int
 (11) DEFAULT NULL,
@@ -38,7 +38,7 @@ UPDATE NO ACTION
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `aluno`
+CREATE TABLE IF NOT EXISTS `aluno`
 (
   `matricula` varchar
 (14) DEFAULT NULL,
@@ -61,7 +61,7 @@ UPDATE NO ACTION
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `professor`
+CREATE TABLE IF NOT EXISTS `professor`
 (
   `cod_professor` int
 (11) DEFAULT NULL,
@@ -77,7 +77,7 @@ UPDATE NO ACTION
 ) ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE `sala`
+CREATE TABLE IF NOT EXISTS `sala`
 (
   `cod_sala` int
 (11) NOT NULL,
